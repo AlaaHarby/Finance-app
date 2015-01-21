@@ -4,8 +4,6 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.android.alaa.financeapp.models.Reminder;
-
 /**
  * Created by Alaa on 1/14/2015.
  */

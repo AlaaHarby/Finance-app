@@ -1,10 +1,7 @@
 package com.android.alaa.financeapp.controllers;
 
-import android.provider.MediaStore;
-
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by Alaa on 1/12/2015.

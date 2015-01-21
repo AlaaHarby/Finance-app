@@ -3,11 +3,8 @@ package com.android.alaa.financeapp.adapters;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
 import com.android.alaa.financeapp.database.BudgetDB;
-import com.android.alaa.financeapp.database.DatabaseHelper;
 import com.android.alaa.financeapp.models.Budget;
-
 import java.util.ArrayList;
 import java.util.List;
 

@@ -11,6 +11,7 @@ public class ReminderDB {
     public static final String DESCRIPTION = "description";
     public static final String PLACE = "place";
     public static final String DATE = "date";
+    public static final String REPEAT = "repeat";
 
     // Database creation sql statement
     private static final String DATABASE_CREATE;
@@ -22,7 +23,8 @@ public class ReminderDB {
                 + NAME + " TEXT NOT NULL, "
                 + DATE + " TEXT NOT NULL, "
                 + PLACE + " TEXT, "
-                + DESCRIPTION + " TEXT"
+                + DESCRIPTION + " TEXT, "
+                + REPEAT + " INT "
                 + ");";
     }
 

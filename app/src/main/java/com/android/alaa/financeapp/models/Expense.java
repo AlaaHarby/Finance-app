@@ -8,17 +8,20 @@ import java.util.Date;
 public class Expense {
 
     double mAmount;
-    Date mDate;
+    String mDate;
     String mPayee;
     String mCategory;
     String mNote;
     String mPayMethod;
     // adding account or receipt picture
 
-    public Expense(double mAmount, Date mDate, String mCategory){
+    public Expense(double mAmount, String mDate, String mCategory, String mPayee, String mNote, String mPayMethod){
         this.mAmount = mAmount;
         this.mDate = mDate;
         this.mCategory = mCategory;
+        this.mPayee = mPayee;
+        this.mNote = mNote;
+        this.mPayMethod = mPayMethod;
     }
 
     public String getPayee() {
@@ -31,5 +34,17 @@ public class Expense {
 
     public String getPayMethod() {
         return mPayMethod;
+    }
+
+    public double getAmount() {
+        return mAmount;
+    }
+
+    public String getDate() {
+        return mDate;
+    }
+
+    public String getCategory() {
+        return mCategory;
     }
 }

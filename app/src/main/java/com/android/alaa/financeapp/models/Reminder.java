@@ -1,7 +1,5 @@
 package com.android.alaa.financeapp.models;
 
-import java.util.Date;
-
 /**
  * Created by Alaa on 1/12/2015.
  * Reminder class holds events added to calender with their properties.
@@ -11,7 +9,7 @@ public class Reminder {
     String mDescription;
     String mPlace;
     int mRepeatRate;
-    Date mDate;
+    String mDate;
 
     public Reminder(String mName){
         this.mName = mName;
@@ -20,9 +18,8 @@ public class Reminder {
     public Reminder(String mName,
                     String mDescription,
                     String mPlace,
-                    boolean mRepeat,
                     int mRepeatRate,
-                    Date mDate) {
+                    String mDate) {
 
         this.mName = mName;
         this.mDescription = mDescription;
@@ -36,7 +33,7 @@ public class Reminder {
         return mName;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return mDate;
     }
 

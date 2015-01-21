@@ -1,17 +1,13 @@
 package com.android.alaa.financeapp.activities;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import com.android.alaa.financeapp.R;
 import com.android.alaa.financeapp.controllers.InputController;
 import com.android.alaa.financeapp.controllers.QueryController;
-import com.android.alaa.financeapp.models.Budget;
-
-import java.util.List;
 
 public class MainActivity extends ActionBarActivity {
 

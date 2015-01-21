@@ -22,8 +22,8 @@ public class ExpenseDB {
                 + TABLE_NAME
                 + "("
                 + AMOUNT + " REAL NOT NULL, "
-                + CATEGORY + " TEXT NOT NULL, "
                 + DATE + " TEXT NOT NULL, "
+                + CATEGORY + " TEXT NOT NULL, "
                 + PAYEE + " TEXT, "
                 + NOTE + " TEXT, "
                 + METHOD + " TEXT"
