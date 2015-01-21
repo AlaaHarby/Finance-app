@@ -19,7 +19,7 @@ public class Comment {
         return mComment;
     }
 
-    public Date mDate(){
+    public Date getDate(){
         return mDate;
     }
 

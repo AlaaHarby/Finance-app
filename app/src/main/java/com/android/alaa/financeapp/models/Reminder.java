@@ -10,7 +10,6 @@ public class Reminder {
     String mName;
     String mDescription;
     String mPlace;
-    boolean mRepeat;
     int mRepeatRate;
     Date mDate;
 
@@ -28,7 +27,6 @@ public class Reminder {
         this.mName = mName;
         this.mDescription = mDescription;
         this.mPlace = mPlace;
-        this.mRepeat = mRepeat;
         this.mRepeatRate = mRepeatRate;
         this.mDate = mDate;
 
@@ -44,10 +42,6 @@ public class Reminder {
 
     public int getRepeatRate() {
         return mRepeatRate;
-    }
-
-    public boolean isRepeat() {
-        return mRepeat;
     }
 
     public String getPlace() {

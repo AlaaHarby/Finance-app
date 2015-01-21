@@ -21,4 +21,8 @@ public class Budget {
     public double getAmount() {
         return mAmount;
     }
+
+    public String toString(){
+        return "Amount: " + mAmount + ", Category: " + mCategory;
+    }
 }
