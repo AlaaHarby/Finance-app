@@ -56,10 +56,10 @@ public class ReminderAdapter extends DBAdapter {
 
     private Reminder cursorToReminder(Cursor cursor) {
         Reminder reminder = new Reminder(cursor.getString(0),
-            cursor.getString(3),
+            cursor.getString(1),
             cursor.getString(2),
-            cursor.getInt(5),
-            cursor.getString(1));
+            cursor.getString(3),
+            cursor.getInt(4));
         return reminder;
     }
 }

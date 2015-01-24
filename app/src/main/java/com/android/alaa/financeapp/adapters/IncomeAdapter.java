@@ -51,7 +51,7 @@ public class IncomeAdapter extends DBAdapter {
     }
 
     private Income cursorToIncome(Cursor cursor) {
-        Income income = new Income(cursor.getString(1), cursor.getDouble(0));
+        Income income = new Income(cursor.getDouble(0), cursor.getString(1));
         return income;
     }
 

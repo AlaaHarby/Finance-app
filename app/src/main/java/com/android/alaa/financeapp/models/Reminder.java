@@ -15,11 +15,7 @@ public class Reminder {
         this.mName = mName;
     }
 
-    public Reminder(String mName,
-                    String mDescription,
-                    String mPlace,
-                    int mRepeatRate,
-                    String mDate) {
+    public Reminder(String mName, String mDate, String mPlace, String mDescription, int mRepeatRate) {
 
         this.mName = mName;
         this.mDescription = mDescription;

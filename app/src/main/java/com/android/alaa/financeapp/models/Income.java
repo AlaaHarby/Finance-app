@@ -8,7 +8,7 @@ public class Income {
     String mSource;
     double mAmount;
 
-    public Income(String mSource, double mAmount){
+    public Income(double mAmount, String mSource){
 
         // Add Deprecation to it later
         this.mSource = mSource;

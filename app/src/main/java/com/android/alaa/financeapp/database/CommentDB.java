@@ -19,7 +19,7 @@ public class CommentDB {
                 + TABLE_NAME
                 + "("
                 + COMMENT + " TEXT, "
-                + DATE + " REAL"
+                + DATE + " TEXT"
                 + ");";
     }
 
@@ -27,7 +27,7 @@ public class CommentDB {
         database.execSQL(DATABASE_CREATE);
     }
 
-    public static void onUpgrade(SQLiteDatabase database, int oldVersion,int newVersion) {
+    public static void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion) {
         database.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(database);
     }
