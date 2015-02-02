@@ -2,8 +2,17 @@
 <resources>
 
     <string name="app_name">FinanceApp</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main">Finance App</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <!--Navigation List-->
+    <string name="navigation_home">Home</string>
+    <string name="navigation_income">Income</string>
+    <string name="navigation_expenses">Expenses</string>
+    <string name="navigation_budget">Budget</string>
+    <string name="drawer_open">Open Navigation</string>
+    <string name="drawer_close">Navigation Close</string>
+
 
 </resources>
