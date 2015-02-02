@@ -3,15 +3,16 @@ package com.android.alaa.financeapp.activities;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.alaa.financeapp.R;
 import com.android.alaa.financeapp.controllers.InputController;
@@ -21,32 +22,33 @@ import com.android.alaa.financeapp.models.Expense;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QueryActivity extends FragmentActivity {
-    QueryController qController;
+public class ExpenseInputActivity extends FragmentActivity {
     InputController iController;
-
-    QueryAdapter queryAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_query);
+        setContentView(R.layout.activity_expense_input);
 
-        qController = new QueryController(this);
         iController = new InputController(this);
 
-        queryAdapter = new QueryAdapter(this);
+        Button submit = (Button) findViewById(R.id.submit);
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                double amount = Double.parseDouble(((TextView)findViewById(R.id.amount_value)).getText().toString());
+                String category = ((TextView)findViewById(R.id.category_value)).getText().toString();
+                Expense expense = new Expense(amount, "", category, "", "", "");
 
-        ListView listView = (ListView) findViewById(R.id.query_list);
-        listView.setAdapter(queryAdapter);
+                iController.insertNewExpense(expense);
 
-        this.refreshView();
-    }
+                Toast.makeText(getApplicationContext(), R.string.expense_success, Toast.LENGTH_SHORT);
 
-    private void refreshView() {
-        List<Expense> expenses = qController.getExpenses();
-        queryAdapter.clear();
-        queryAdapter.addAll(expenses);
+                // Clear all the texts.
+                ((TextView)findViewById(R.id.amount_value)).setText("");
+                ((TextView)findViewById(R.id.category_value)).setText("");
+            }
+        });
     }
 
     @Override
@@ -72,8 +74,8 @@ public class QueryActivity extends FragmentActivity {
     }
 
     class QueryAdapter extends ArrayAdapter<Expense> {
-        public QueryAdapter(Context mContext) {
-            super(mContext, 0, new ArrayList<Expense>());
+        public QueryAdapter(Context context) {
+            super(context, 0, new ArrayList<Expense>());
         }
 
         @Override
