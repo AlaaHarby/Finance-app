@@ -16,14 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activities.QueryActivity"
-            android:label="@string/title_activity_query" >
-        </activity>
-        <activity
-            android:name=".activities.ExpenseInputActivity"
-            android:label="@string/title_activity_expense_input" >
-        </activity>
+
     </application>
 
 </manifest>

@@ -3,10 +3,13 @@ package com.android.alaa.financeapp.activities;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -76,6 +79,16 @@ class NavigationAdapter extends ArrayAdapter<NavigationItem> {
 
 public class NavigationActivity extends ActionBarActivity {
 
+    private static final String HOME_FRAG_TAG = "HOME";
+    private static final String EXPENSES_FRAG_TAG = "EXPENSES";
+    private static final String INCOME_FRAG_TAG = "INCOME";
+    private static final String BUDGET_FRAG_TAG = "BUDGET";
+
+    private static final int HOME_FRAG_ID = 0;
+    private static final int INCOME_FRAG_ID = 1;
+    private static final int EXPENSES_FRAG_ID = 2;
+    private static final int BUDGET_FRAG_ID = 3;
+
     InputController iController;
     QueryController qController;
 
@@ -84,12 +97,16 @@ public class NavigationActivity extends ActionBarActivity {
     NavigationAdapter mNavigationAdapter;
     ArrayList<NavigationItem> mNavigationMenu;
     ActionBarDrawerToggle mNavigationToggle;
+    FragmentManager mFragManager;
+    Fragment mCurrFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigation_drawer);
+
+        mFragManager = getSupportFragmentManager();
 
         mNavigationDrawer = (DrawerLayout) findViewById(R.id.navigation_layout);
         mNavigationDrawer.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
@@ -109,6 +126,7 @@ public class NavigationActivity extends ActionBarActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 mNavigationDrawer.closeDrawers();
+                Log.d("NavigationActivity", " " + position + " " + id);
                 navigateTo(position);
             }
         });
@@ -120,6 +138,8 @@ public class NavigationActivity extends ActionBarActivity {
         qController = new QueryController(this);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        navigateTo(HOME_FRAG_ID);
     }
 
 
@@ -131,7 +151,6 @@ public class NavigationActivity extends ActionBarActivity {
     }
 
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // The action bar home/up action should open or close the drawer.
@@ -140,15 +159,50 @@ public class NavigationActivity extends ActionBarActivity {
             return true;
         }
         // Handle action buttons
-        switch(item.getItemId()) {
+        switch (item.getItemId()) {
 
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    public void navigateTo(int id){
+    public void navigateTo(int id) {
 
+        switch (id) {
+            case HOME_FRAG_ID:
+                mCurrFragment = mFragManager.findFragmentByTag(HOME_FRAG_TAG);
+                if (mCurrFragment == null)
+                    mCurrFragment = new QueryFragment();
+
+                mFragManager
+                        .beginTransaction()
+                        .replace(R.id.content_frame, mCurrFragment,
+                                HOME_FRAG_TAG).commit();
+
+                break;
+            case INCOME_FRAG_ID:
+                mCurrFragment = mFragManager.findFragmentByTag(INCOME_FRAG_TAG);
+                if (mCurrFragment == null)
+                    mCurrFragment = new IncomeInputFragment();
+
+                mFragManager
+                        .beginTransaction()
+                        .replace(R.id.content_frame, mCurrFragment,
+                                INCOME_FRAG_TAG).commit();
+                break;
+            case EXPENSES_FRAG_ID:
+                mCurrFragment = mFragManager.findFragmentByTag(EXPENSES_FRAG_TAG);
+                if (mCurrFragment == null)
+                    mCurrFragment = new ExpenseInputFragment();
+
+                mFragManager
+                        .beginTransaction()
+                        .replace(R.id.content_frame, mCurrFragment,
+                                EXPENSES_FRAG_TAG).commit();
+                break;
+            case BUDGET_FRAG_ID:
+                break;
+        }
     }
 
 

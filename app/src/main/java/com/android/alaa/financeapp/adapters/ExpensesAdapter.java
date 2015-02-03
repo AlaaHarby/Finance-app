@@ -30,11 +30,11 @@ public class ExpensesAdapter extends DBAdapter {
     public void addDBEntry(SQLiteDatabase database, Expense expense) {
         ContentValues values = new ContentValues();
         values.put(ExpenseDB.AMOUNT, expense.getAmount());
-        values.put(ExpenseDB.CATEGORY, expense.getCategory());
         values.put(ExpenseDB.DATE, expense.getDate());
-        values.put(ExpenseDB.METHOD, expense.getPayMethod());
-        values.put(ExpenseDB.NOTE, expense.getNote());
+        values.put(ExpenseDB.CATEGORY, expense.getCategory());
         values.put(ExpenseDB.PAYEE, expense.getPayee());
+        values.put(ExpenseDB.NOTE, expense.getNote());
+        values.put(ExpenseDB.METHOD, expense.getPayMethod());
         long insertId = database.insert(ExpenseDB.TABLE_NAME, null,
                 values);
     }

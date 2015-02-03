@@ -5,11 +5,16 @@
     <string name="title_activity_main">Finance App</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="text_amount">Amount:</string>
+
+    <!--Query Table-->
     <string name="title_activity_query">QueryActivity</string>
     <string name="title_activity_expense_input">Expense</string>
+    <string name="query_title">Query Table</string>
+
+    <!--Expenses-->
     <string name="expense_btn_submit">Add Expense</string>
     <string name="expense_text_category">Category:</string>
-    <string name="expense_text_amount">Amount:</string>
     <string name="expense_success">Expense Added successfully!</string>
     <string name="expense_text_date">Date:</string>
 
@@ -21,5 +26,9 @@
     <string name="drawer_open">Open Navigation</string>
     <string name="drawer_close">Navigation Close</string>
 
+    <!--Income-->
+    <string name="income_btn_submit">Add Income</string>
+    <string name="income_src_txt">Source</string>
+    <string name="income_success">Income Added successfully!</string>
 
 </resources>

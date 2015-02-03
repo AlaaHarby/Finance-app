@@ -2,10 +2,11 @@ package com.android.alaa.financeapp.activities;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.ActionBarActivity;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,26 +22,27 @@ import com.android.alaa.financeapp.models.Expense;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QueryActivity extends FragmentActivity {
+public class QueryFragment extends Fragment {
     QueryController qController;
     InputController iController;
 
     QueryAdapter queryAdapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_query);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.activity_query, container, false);
 
-        qController = new QueryController(this);
-        iController = new InputController(this);
+        qController = new QueryController(getActivity());
+        iController = new InputController(getActivity());
 
-        queryAdapter = new QueryAdapter(this);
+        queryAdapter = new QueryAdapter(getActivity());
 
-        ListView listView = (ListView) findViewById(R.id.query_list);
+        ListView listView = (ListView) view.findViewById(R.id.query_list);
         listView.setAdapter(queryAdapter);
 
         this.refreshView();
+
+        return view;
     }
 
     private void refreshView() {
@@ -50,10 +52,9 @@ public class QueryActivity extends FragmentActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_query, menu);
-        return true;
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_query, menu);
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
