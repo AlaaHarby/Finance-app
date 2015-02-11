@@ -53,6 +53,6 @@ public class CommentAdapter extends DBAdapter {
     }
 
     private Comment cursorToComment(Cursor cursor) {
-        Comment comment = new Comment(cursor.getString(0), cursor.getString(1));
+        Comment comment = new Comment(cursor.getString(0), cursor.getLong(1));
         return comment;
     }}
