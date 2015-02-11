@@ -35,13 +35,12 @@
             android:gravity="left"
             android:text="@string/expense_text_category" />
 
-        <EditText
-            android:id="@+id/category_value"
+        <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/category_value"
             android:gravity="center"
-            android:inputType="text"
-            android:text="" />
+            android:layout_column="1" />
     </TableRow>
 
     <TableRow>

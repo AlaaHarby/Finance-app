@@ -25,6 +25,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         ExpenseDB.onCreate(db);
         IncomeDB.onCreate(db);
         ReminderDB.onCreate(db);
+        CategoryDB.onCreate(db);
         db.setTransactionSuccessful();
         db.endTransaction();
     }
