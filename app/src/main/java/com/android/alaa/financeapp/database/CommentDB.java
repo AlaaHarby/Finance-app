@@ -19,7 +19,7 @@ public class CommentDB {
                 + TABLE_NAME
                 + "("
                 + COMMENT + " TEXT, "
-                + DATE + " TEXT"
+                + DATE + " INTEGER"
                 + ");";
     }
 

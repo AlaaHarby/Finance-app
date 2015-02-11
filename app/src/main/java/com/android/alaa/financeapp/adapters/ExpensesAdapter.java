@@ -57,7 +57,7 @@ public class ExpensesAdapter extends DBAdapter {
     }
 
     private Expense cursorToExpense(Cursor cursor) {
-        Expense expense = new Expense(cursor.getDouble(0), cursor.getString(1), cursor.getString(2),
+        Expense expense = new Expense(cursor.getDouble(0), cursor.getLong(1), cursor.getString(2),
                 cursor.getString(3),cursor.getString(4),cursor.getString(5));
         return expense;
     }

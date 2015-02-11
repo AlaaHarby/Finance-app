@@ -19,7 +19,9 @@ import com.android.alaa.financeapp.controllers.InputController;
 import com.android.alaa.financeapp.controllers.QueryController;
 import com.android.alaa.financeapp.models.Expense;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class QueryFragment extends Fragment {
@@ -94,7 +96,7 @@ public class QueryFragment extends Fragment {
             // Populate the data into the template view using the data object
             category.setText(expense.getCategory());
             amount.setText(expense.getAmount() + "");
-            date.setText(expense.getDate());
+            date.setText(new SimpleDateFormat("dd/MM/yy").format(new Date(expense.getDate())));
 
             // Return the completed view to render on screen
             return convertView;

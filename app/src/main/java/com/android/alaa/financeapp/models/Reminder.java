@@ -9,13 +9,13 @@ public class Reminder {
     String mDescription;
     String mPlace;
     int mRepeatRate;
-    String mDate;
+    long mDate;
 
     public Reminder(String mName){
         this.mName = mName;
     }
 
-    public Reminder(String mName, String mDate, String mPlace, String mDescription, int mRepeatRate) {
+    public Reminder(String mName, long mDate, String mPlace, String mDescription, int mRepeatRate) {
 
         this.mName = mName;
         this.mDescription = mDescription;
@@ -29,7 +29,7 @@ public class Reminder {
         return mName;
     }
 
-    public String getDate() {
+    public long getDate() {
         return mDate;
     }
 

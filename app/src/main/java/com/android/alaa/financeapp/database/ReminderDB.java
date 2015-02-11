@@ -21,7 +21,7 @@ public class ReminderDB {
                 + TABLE_NAME
                 + "("
                 + NAME + " TEXT NOT NULL, "
-                + DATE + " TEXT NOT NULL, "
+                + DATE + " INTEGER NOT NULL, "
                 + PLACE + " TEXT, "
                 + DESCRIPTION + " TEXT, "
                 + REPEAT + " INT "

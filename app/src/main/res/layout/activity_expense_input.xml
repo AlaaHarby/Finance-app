@@ -4,8 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="@dimen/activity_vertical_margin"
-    android:stretchColumns="*"
     android:scrollbars="vertical"
+    android:stretchColumns="*"
     tools:context="com.android.alaa.financeapp.activities.ExpenseInputFragment">
 
     <TableRow>
@@ -44,32 +44,25 @@
             android:text="" />
     </TableRow>
 
-    <TableRow android:paddingBottom="20dp">
+    <TableRow>
 
         <TextView
             android:id="@+id/date_key"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="left"
+            android:paddingTop="10dp"
             android:text="@string/expense_text_date" />
 
-        <EditText
-            android:id="@+id/date_value"
+        <DatePicker
+            android:id="@+id/date_picker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="" />
+            android:calendarViewShown="false"
+            android:datePickerMode="spinner" />
     </TableRow>
 
-    <DatePicker
-        android:id="@+id/date_picker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:calendarViewShown="false"
-        android:datePickerMode="spinner" />
-
-    <TableRow
-        android:paddingTop="20dp">
+    <TableRow android:paddingTop="20dp">
 
         <Button
             android:id="@+id/submit"

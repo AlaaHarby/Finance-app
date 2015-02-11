@@ -8,9 +8,9 @@ import java.util.Date;
  */
 public class Comment {
     String mComment;
-    String mDate;
+    long mDate;
 
-    public Comment(String mComment, String mDate){
+    public Comment(String mComment, long mDate){
         this.mComment = mComment;
         this.mDate = mDate;
     }
@@ -19,7 +19,7 @@ public class Comment {
         return mComment;
     }
 
-    public String getDate(){
+    public long getDate(){
         return mDate;
     }
 

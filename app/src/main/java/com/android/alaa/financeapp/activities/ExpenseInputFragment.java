@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,7 +37,7 @@ public class ExpenseInputFragment extends Fragment {
                 try {
                     double amount = Double.parseDouble(((TextView) view.findViewById(R.id.amount_value)).getText().toString());
                     String category = ((TextView) view.findViewById(R.id.category_value)).getText().toString();
-                    String date = ((EditText) view.findViewById(R.id.date_value)).getText().toString();
+                    long date = ((DatePicker) view.findViewById(R.id.date_picker)).getCalendarView().getDate();
                     Expense expense = new Expense(amount, date, category, "", "", "");
 
                     iController.insertNewExpense(expense);
@@ -46,7 +47,7 @@ public class ExpenseInputFragment extends Fragment {
                     // Clear all the texts.
                     ((TextView) view.findViewById(R.id.amount_value)).setText("");
                     ((EditText) view.findViewById(R.id.category_value)).setText("");
-                    ((TextView) view.findViewById(R.id.date_value)).setText("");
+                    //((TextView) view.findViewById(R.id.date_value)).setText("");
                 } catch (Exception e) {
                     Toast.makeText(getActivity().getApplicationContext(), R.string.validation_msg, Toast.LENGTH_LONG).show();
                 }
