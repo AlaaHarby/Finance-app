@@ -58,7 +58,7 @@ public class ExpenseInputFragment extends Fragment {
                     double amount = Double.parseDouble(((TextView) view.findViewById(R.id.amount_value)).getText().toString());
                     String category = ((Spinner) view.findViewById(R.id.category_value)).getSelectedItem().toString();
                     long date = ((DatePicker) view.findViewById(R.id.date_picker)).getCalendarView().getDate();
-                    Expense expense = new Expense(amount, date, category, "", "", "");
+                    Expense expense = new Expense(0, amount, date, category, "", "", "");
 
                     iController.insertNewExpense(expense);
 

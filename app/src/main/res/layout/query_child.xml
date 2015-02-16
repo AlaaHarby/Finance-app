@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_vertical_margin"
+    android:shrinkColumns="1">
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/description_title" />
+
+        <TextView
+            android:id="@+id/description_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/description_hint"
+            android:paddingLeft="10dp" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/payee_txt" />
+
+        <TextView
+            android:id="@+id/payee_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/payee_hint"
+            android:paddingLeft="10dp" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/payment_method" />
+
+        <TextView
+            android:id="@+id/payment_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/payment_method_hint"
+            android:paddingLeft="10dp" />
+    </TableRow>
+
+    <TableRow android:paddingTop="20dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:src="@android:drawable/ic_menu_edit" />
+
+            <ImageButton
+                android:id="@+id/delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/edit"
+                android:padding="10dp"
+                android:src="@android:drawable/ic_menu_delete" />
+
+        </RelativeLayout>
+    </TableRow>
+</TableLayout>
+

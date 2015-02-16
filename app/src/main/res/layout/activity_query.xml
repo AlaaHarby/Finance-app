@@ -16,10 +16,11 @@
         android:text="@string/query_title"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <ListView
+    <ExpandableListView
         android:id="@+id/query_list"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:scrollbars="vertical"></ListView>
+        android:groupIndicator="@null"
+        android:scrollbars="vertical"></ExpandableListView>
 
 </LinearLayout>

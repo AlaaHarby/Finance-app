@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
  */
 public class ExpenseDB {
     public static final String TABLE_NAME = "expense";
+    public static final String _ID = "_id";
     public static final String AMOUNT = "amount";
     public static final String CATEGORY = "category";
     public static final String DATE = "date";
@@ -21,6 +22,7 @@ public class ExpenseDB {
         DATABASE_CREATE = "CREATE TABLE "
                 + TABLE_NAME
                 + "("
+                + _ID + " INTEGER PRIMARY KEY, "
                 + AMOUNT + " REAL NOT NULL, "
                 + DATE + " INTEGER, "
                 + CATEGORY + " TEXT NOT NULL, "

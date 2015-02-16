@@ -31,5 +31,12 @@
     <string name="income_src_txt">Source</string>
     <string name="income_success">Income Added successfully!</string>
     <string name="validation_msg">Amount and Category values cannot be empty.</string>
+    <string name="description_title">Description</string>
+    <string name="description_hint">Add notes or description for payment</string>
+    <string name="payee_txt">Payee</string>
+    <string name="payee_hint">Include Payee</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="payment_method_hint">Cash, Visa or Debit card</string>
+    <string name="delete_warning">Do you want to remove?</string>
 
 </resources>

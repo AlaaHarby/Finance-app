@@ -39,6 +39,10 @@ public class ExpensesAdapter extends DBAdapter {
                 values);
     }
 
+    public void removeDBEntry(SQLiteDatabase database, Expense expense) {
+        database.delete(ExpenseDB.TABLE_NAME, ExpenseDB._ID + "=" + expense.getID(), null);
+    }
+
     public List<Expense> queryDBEntry(SQLiteDatabase database) {
         List<Expense> expenses = new ArrayList<Expense>();
 
@@ -57,8 +61,8 @@ public class ExpensesAdapter extends DBAdapter {
     }
 
     private Expense cursorToExpense(Cursor cursor) {
-        Expense expense = new Expense(cursor.getDouble(0), cursor.getLong(1), cursor.getString(2),
-                cursor.getString(3),cursor.getString(4),cursor.getString(5));
+        Expense expense = new Expense(cursor.getInt(0), cursor.getDouble(1), cursor.getLong(2), cursor.getString(3),
+                cursor.getString(4),cursor.getString(5),cursor.getString(6));
         return expense;
     }
 }
