@@ -11,12 +11,20 @@
     <string name="title_activity_query">QueryActivity</string>
     <string name="title_activity_expense_input">Expense</string>
     <string name="query_title">Query Table</string>
+    <string name="description_title">Description</string>
+    <string name="description_hint">Add notes or description for payment</string>
+    <string name="payee_txt">Payee</string>
+    <string name="payee_hint">Include Payee</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="payment_method_hint">Cash, Visa or Debit card</string>
+    <string name="delete_warning">Do you want to remove?</string>
 
     <!--Expenses-->
     <string name="expense_btn_submit">Add Expense</string>
     <string name="expense_text_category">Category:</string>
     <string name="expense_success">Expense Added successfully!</string>
     <string name="expense_text_date">Date:</string>
+    <string name="parse_qif_btn">Parse QIF</string>
 
     <!--Navigation List-->
     <string name="navigation_home">Home</string>
@@ -27,16 +35,11 @@
     <string name="drawer_close">Navigation Close</string>
 
     <!--Income-->
+
     <string name="income_btn_submit">Add Income</string>
     <string name="income_src_txt">Source</string>
     <string name="income_success">Income Added successfully!</string>
     <string name="validation_msg">Amount and Category values cannot be empty.</string>
-    <string name="description_title">Description</string>
-    <string name="description_hint">Add notes or description for payment</string>
-    <string name="payee_txt">Payee</string>
-    <string name="payee_hint">Include Payee</string>
-    <string name="payment_method">Payment Method</string>
-    <string name="payment_method_hint">Cash, Visa or Debit card</string>
-    <string name="delete_warning">Do you want to remove?</string>
+
 
 </resources>

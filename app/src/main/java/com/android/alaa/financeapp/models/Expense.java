@@ -1,5 +1,7 @@
 package com.android.alaa.financeapp.models;
 
+import java.util.Date;
+
 /**
  * Created by Alaa on 1/13/2015.
  */
@@ -13,6 +15,10 @@ public class Expense {
     String mNote;
     String mPayMethod;
     // adding account or receipt picture
+
+    public Expense() {
+
+    }
 
     public Expense(int mID, double mAmount, long mDate, String mCategory, String mPayee, String mNote, String mPayMethod) {
         this.mID = mID;
@@ -36,6 +42,10 @@ public class Expense {
         return mNote;
     }
 
+    public void setNote(String note) {
+        mNote = note;
+    }
+
     public String getPayMethod() {
         return mPayMethod;
     }
@@ -44,11 +54,23 @@ public class Expense {
         return mAmount;
     }
 
+    public void setAmount(double amount) {
+        mAmount = amount;
+    }
+
     public long getDate() {
         return mDate;
     }
 
+    public void setDate(Date date) {
+        mDate = date.getTime();
+    }
+
     public String getCategory() {
         return mCategory;
+    }
+
+    public String toString() {
+        return String.format("[Expense] %s %d %f\n", mNote, mDate, mAmount);
     }
 }

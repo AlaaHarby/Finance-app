@@ -53,7 +53,6 @@ public class ExpenseInputFragment extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 try {
                     double amount = Double.parseDouble(((TextView) view.findViewById(R.id.amount_value)).getText().toString());
                     String category = ((Spinner) view.findViewById(R.id.category_value)).getSelectedItem().toString();
@@ -66,14 +65,34 @@ public class ExpenseInputFragment extends Fragment {
 
                     // Clear all the texts.
                     ((TextView) view.findViewById(R.id.amount_value)).setText("");
-                    //((EditText) view.findViewById(R.id.category_value)).setText("");
-                    //((TextView) view.findViewById(R.id.date_value)).setText("");
                 } catch (Exception e) {
                     Toast.makeText(getActivity().getApplicationContext(), R.string.validation_msg, Toast.LENGTH_LONG).show();
                 }
-
             }
         });
+
+        Button parseQIF = (Button) view.findViewById(R.id.parse_qif);
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    double amount = Double.parseDouble(((TextView) view.findViewById(R.id.amount_value)).getText().toString());
+                    String category = ((Spinner) view.findViewById(R.id.category_value)).getSelectedItem().toString();
+                    long date = ((DatePicker) view.findViewById(R.id.date_picker)).getCalendarView().getDate();
+                    Expense expense = new Expense(amount, date, category, "", "", "");
+
+                    iController.insertNewExpense(expense);
+
+                    Toast.makeText(getActivity().getApplicationContext(), R.string.expense_success, Toast.LENGTH_SHORT).show();
+
+                    // Clear all the texts.
+                    ((TextView) view.findViewById(R.id.amount_value)).setText("");
+                } catch (Exception e) {
+                    Toast.makeText(getActivity().getApplicationContext(), R.string.validation_msg, Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
         return view;
     }
 
