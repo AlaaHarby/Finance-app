@@ -15,6 +15,10 @@ public class Expense {
     String mPayMethod;
     // adding account or receipt picture
 
+    public Expense() {
+
+    }
+
     public Expense(double mAmount, long mDate, String mCategory, String mPayee, String mNote, String mPayMethod){
         this.mAmount = mAmount;
         this.mDate = mDate;
@@ -46,5 +50,21 @@ public class Expense {
 
     public String getCategory() {
         return mCategory;
+    }
+
+    public void setDate(Date date) {
+        mDate = date.getTime();
+    }
+
+    public void setAmount(double amount) {
+        mAmount = amount;
+    }
+
+    public void setNote(String note) {
+        mNote = note;
+    }
+
+    public String toString() {
+        return String.format("[Expense] %s %d %f\n", mNote, mDate, mAmount);
     }
 }

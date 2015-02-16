@@ -71,4 +71,14 @@
             android:text="@string/expense_btn_submit" />
     </TableRow>
 
+    <TableRow android:paddingTop="20dp">
+
+        <Button
+            android:id="@+id/parse_qif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:text="@string/parse_qif_btn" />
+    </TableRow>
+
 </TableLayout>
