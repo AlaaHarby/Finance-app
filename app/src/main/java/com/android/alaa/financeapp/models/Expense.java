@@ -20,6 +20,10 @@ public class Expense {
 
     }
 
+    public Expense(double mAmount, long mDate, String mCategory, String mPayee, String mNote, String mPayMethod) {
+        this(0, mAmount, mDate, mCategory, mPayee, mNote, mPayMethod);
+    }
+
     public Expense(int mID, double mAmount, long mDate, String mCategory, String mPayee, String mNote, String mPayMethod) {
         this.mID = mID;
         this.mAmount = mAmount;
