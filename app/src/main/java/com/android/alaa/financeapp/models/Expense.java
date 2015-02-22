@@ -74,6 +74,8 @@ public class Expense {
         return mCategory;
     }
 
+    public void setCategory(String category) {mCategory = category;}
+
     public String toString() {
         return String.format("[Expense] %s %d %f\n", mNote, mDate, mAmount);
     }

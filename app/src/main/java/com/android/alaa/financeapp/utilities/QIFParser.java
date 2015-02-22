@@ -57,6 +57,7 @@ public class QIFParser {
         }
 
         Expense expense = new Expense();
+        expense.setCategory("Other");
         boolean done = false;
 
         do {

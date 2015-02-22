@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,9 +21,9 @@ import com.android.alaa.financeapp.controllers.InputController;
 import com.android.alaa.financeapp.controllers.QueryController;
 import com.android.alaa.financeapp.models.Category;
 import com.android.alaa.financeapp.models.Expense;
+import com.android.alaa.financeapp.utilities.DirectoryChooserDialog;
+import com.android.alaa.financeapp.utilities.QIFParser;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class ExpenseInputFragment extends Fragment {
@@ -72,24 +71,26 @@ public class ExpenseInputFragment extends Fragment {
         });
 
         Button parseQIF = (Button) view.findViewById(R.id.parse_qif);
-        submit.setOnClickListener(new View.OnClickListener() {
+        parseQIF.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                try {
-                    double amount = Double.parseDouble(((TextView) view.findViewById(R.id.amount_value)).getText().toString());
-                    String category = ((Spinner) view.findViewById(R.id.category_value)).getSelectedItem().toString();
-                    long date = ((DatePicker) view.findViewById(R.id.date_picker)).getCalendarView().getDate();
-                    Expense expense = new Expense(amount, date, category, "", "", "");
+                // Create DirectoryChooserDialog and register a callback
+                DirectoryChooserDialog directoryChooserDialog =
+                        new DirectoryChooserDialog(getActivity(),
+                                new DirectoryChooserDialog.ChosenDirectoryListener() {
+                                    @Override
+                                    public void onChosenDir(String dir) {
+                                        QIFParser parser = new QIFParser(dir);
+                                        List<Expense> expenses = parser.parseExpenses();
+                                        for(Expense e: expenses){
+                                            iController.insertNewExpense(e);
+                                        }
+                                    }
+                                });
+                directoryChooserDialog.setNewFolderEnabled(false);
+                directoryChooserDialog.chooseDirectory("");
 
-                    iController.insertNewExpense(expense);
-
-                    Toast.makeText(getActivity().getApplicationContext(), R.string.expense_success, Toast.LENGTH_SHORT).show();
-
-                    // Clear all the texts.
-                    ((TextView) view.findViewById(R.id.amount_value)).setText("");
-                } catch (Exception e) {
-                    Toast.makeText(getActivity().getApplicationContext(), R.string.validation_msg, Toast.LENGTH_LONG).show();
-                }
             }
         });
 
