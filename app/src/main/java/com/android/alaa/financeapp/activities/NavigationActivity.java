@@ -83,11 +83,13 @@ public class NavigationActivity extends ActionBarActivity {
     private static final String EXPENSES_FRAG_TAG = "EXPENSES";
     private static final String INCOME_FRAG_TAG = "INCOME";
     private static final String BUDGET_FRAG_TAG = "BUDGET";
+    private static final String CANVAS_FRAG_TAG = "CANVAS";
 
     private static final int HOME_FRAG_ID = 0;
     private static final int INCOME_FRAG_ID = 1;
     private static final int EXPENSES_FRAG_ID = 2;
     private static final int BUDGET_FRAG_ID = 3;
+    private static final int CANVAS_FRAG_ID = 4;
 
     InputController iController;
     QueryController qController;
@@ -118,6 +120,7 @@ public class NavigationActivity extends ActionBarActivity {
         mNavigationMenu.add(new NavigationItem(getString(R.string.navigation_income), R.drawable.navigation_arrow));
         mNavigationMenu.add(new NavigationItem(getString(R.string.navigation_expenses), R.drawable.navigation_arrow));
         mNavigationMenu.add(new NavigationItem(getString(R.string.navigation_budget), R.drawable.navigation_arrow));
+        mNavigationMenu.add(new NavigationItem(getString(R.string.navigation_canvas), R.drawable.navigation_arrow));
 
         mNavigationAdapter = new NavigationAdapter(this, mNavigationMenu);
         mNavigationList.setAdapter(mNavigationAdapter);
@@ -201,6 +204,17 @@ public class NavigationActivity extends ActionBarActivity {
                                 EXPENSES_FRAG_TAG).commit();
                 break;
             case BUDGET_FRAG_ID:
+                break;
+            case CANVAS_FRAG_ID:
+                mCurrFragment = mFragManager.findFragmentByTag(CANVAS_FRAG_TAG);
+                if (mCurrFragment == null)
+                    mCurrFragment = new CanvasFragment();
+
+                mFragManager
+                        .beginTransaction()
+                        .replace(R.id.content_frame, mCurrFragment,
+                                CANVAS_FRAG_TAG).commit();
+
                 break;
         }
     }

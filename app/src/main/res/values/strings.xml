@@ -40,6 +40,8 @@
     <string name="income_src_txt">Source</string>
     <string name="income_success">Income Added successfully!</string>
     <string name="validation_msg">Amount and Category values cannot be empty.</string>
+    <string name="canvas_title">Timeline</string>
+    <string name="navigation_canvas">Timeline</string>
 
 
 </resources>
