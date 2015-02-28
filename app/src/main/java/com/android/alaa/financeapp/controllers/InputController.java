@@ -62,6 +62,10 @@ public class InputController {
         mExpensesAdapter.removeDBEntry(mDatabase, expense);
     }
 
+    public void updateExpense(Expense expense) {
+        mExpensesAdapter.updateDBEntry(mDatabase, expense);
+    }
+
     public void insertNewIncome(Income income) {
         mIncomeAdapter.addDBEntry(mDatabase, income);
     }

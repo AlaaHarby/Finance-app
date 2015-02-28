@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.android.alaa.financeapp.database.DatabaseHelper;
 import com.android.alaa.financeapp.database.ExpenseDB;
 import com.android.alaa.financeapp.models.Expense;
 
@@ -17,11 +16,11 @@ import java.util.List;
 public class ExpensesAdapter extends DBAdapter {
     private static ExpensesAdapter mAdapter;
 
-    private ExpensesAdapter(){
+    private ExpensesAdapter() {
     }
 
-    public static ExpensesAdapter getInstance(){
-        if(mAdapter == null)
+    public static ExpensesAdapter getInstance() {
+        if (mAdapter == null)
             mAdapter = new ExpensesAdapter();
 
         return mAdapter;
@@ -62,7 +61,18 @@ public class ExpensesAdapter extends DBAdapter {
 
     private Expense cursorToExpense(Cursor cursor) {
         Expense expense = new Expense(cursor.getInt(0), cursor.getDouble(1), cursor.getLong(2), cursor.getString(3),
-                cursor.getString(4),cursor.getString(5),cursor.getString(6));
+                cursor.getString(4), cursor.getString(5), cursor.getString(6));
         return expense;
+    }
+
+    public void updateDBEntry(SQLiteDatabase database, Expense expense) {
+        ContentValues values = new ContentValues();
+        values.put(ExpenseDB.AMOUNT, expense.getAmount());
+        values.put(ExpenseDB.DATE, expense.getDate());
+        values.put(ExpenseDB.CATEGORY, expense.getCategory());
+        values.put(ExpenseDB.PAYEE, expense.getPayee());
+        values.put(ExpenseDB.NOTE, expense.getNote());
+        values.put(ExpenseDB.METHOD, expense.getPayMethod());
+        database.update(ExpenseDB.TABLE_NAME, values, ExpenseDB._ID + "=" + expense.getID(), null);
     }
 }

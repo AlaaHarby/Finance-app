@@ -1,8 +1,8 @@
 package com.android.alaa.financeapp.activities;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,7 +54,7 @@ public class ExpenseInputFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 try {
-                    double amount = Double.parseDouble(((TextView) view.findViewById(R.id.amount_value)).getText().toString());
+                    double amount = Double.parseDouble(((EditText) view.findViewById(R.id.amount_value)).getText().toString());
                     String category = ((Spinner) view.findViewById(R.id.category_value)).getSelectedItem().toString();
                     long date = ((DatePicker) view.findViewById(R.id.date_picker)).getCalendarView().getDate();
                     Expense expense = new Expense(0, amount, date, category, "", "", "");

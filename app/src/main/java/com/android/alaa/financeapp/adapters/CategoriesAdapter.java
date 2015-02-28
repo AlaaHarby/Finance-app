@@ -5,9 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.android.alaa.financeapp.database.CategoryDB;
-import com.android.alaa.financeapp.database.ExpenseDB;
 import com.android.alaa.financeapp.models.Category;
-import com.android.alaa.financeapp.models.Expense;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,11 +16,11 @@ import java.util.List;
 public class CategoriesAdapter extends DBAdapter {
     private static CategoriesAdapter mAdapter;
 
-    private CategoriesAdapter(){
+    private CategoriesAdapter() {
     }
 
-    public static CategoriesAdapter getInstance(){
-        if(mAdapter == null)
+    public static CategoriesAdapter getInstance() {
+        if (mAdapter == null)
             mAdapter = new CategoriesAdapter();
 
         return mAdapter;
