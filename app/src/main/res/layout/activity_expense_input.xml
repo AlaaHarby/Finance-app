@@ -1,84 +1,142 @@
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="@dimen/activity_vertical_margin"
-    android:scrollbars="vertical"
-    android:stretchColumns="*"
-    tools:context="com.android.alaa.financeapp.activities.ExpenseInputFragment">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:scrollbars="none">
 
-    <TableRow>
+    <TableLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_vertical_margin"
+        android:shrinkColumns="1"
+        tools:context="com.android.alaa.financeapp.activities.ExpenseInputFragment">
 
-        <TextView
-            android:id="@+id/amount_key"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="@string/text_amount" />
+        <TableRow>
 
-        <EditText
-            android:id="@+id/amount_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:inputType="numberDecimal"
-            android:text="" />
-    </TableRow>
+            <TextView
+                android:id="@+id/amount_key"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="@string/text_amount" />
 
-    <TableRow>
+            <EditText
+                android:id="@+id/amount_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:inputType="numberDecimal" />
+        </TableRow>
 
-        <TextView
-            android:id="@+id/category_key"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="@string/expense_text_category" />
+        <TableRow>
 
-        <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/category_value"
-            android:gravity="center"
-            android:layout_column="1" />
-    </TableRow>
+            <TextView
+                android:id="@+id/category_key"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="@string/expense_text_category" />
 
-    <TableRow>
+            <Spinner
+                android:id="@+id/category_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:gravity="center" />
+        </TableRow>
 
-        <TextView
-            android:id="@+id/date_key"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:paddingTop="10dp"
-            android:text="@string/expense_text_date" />
+        <TableRow>
 
-        <DatePicker
-            android:id="@+id/date_picker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:calendarViewShown="false"
-            android:datePickerMode="spinner" />
-    </TableRow>
+            <TextView
+                android:id="@+id/date_key"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:paddingTop="10dp"
+                android:text="@string/expense_text_date" />
 
-    <TableRow android:paddingTop="20dp">
+            <DatePicker
+                android:id="@+id/date_picker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:calendarViewShown="false"
+                android:datePickerMode="spinner" />
+        </TableRow>
 
-        <Button
-            android:id="@+id/submit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:text="@string/expense_btn_submit" />
-    </TableRow>
+        <TableRow>
 
-    <TableRow android:paddingTop="20dp">
+            <TextView
+                android:id="@+id/description_key"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:paddingTop="10dp"
+                android:text="@string/description_title" />
 
-        <Button
-            android:id="@+id/parse_qif"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:text="@string/parse_qif_btn" />
-    </TableRow>
+            <EditText
+                android:id="@+id/description_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:inputType="text"
+                android:text="" />
+        </TableRow>
 
-</TableLayout>
+        <TableRow>
+
+            <TextView
+                android:id="@+id/payee_key"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="@string/payee_txt" />
+
+            <EditText
+                android:id="@+id/payee_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:inputType="text"
+                android:text="" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/payment_key"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="@string/payment_method" />
+
+            <EditText
+                android:id="@+id/payment_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:inputType="text"
+                android:text="" />
+        </TableRow>
+
+        <TableRow android:paddingTop="20dp">
+
+            <Button
+                android:id="@+id/submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="@string/expense_btn_submit" />
+        </TableRow>
+
+        <TableRow android:paddingTop="20dp">
+
+            <Button
+                android:id="@+id/parse_qif"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="@string/parse_qif_btn" />
+        </TableRow>
+
+    </TableLayout>
+</ScrollView>
